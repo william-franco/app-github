@@ -1,6 +1,93 @@
-# App Github
+# App GitHub
 
-Lorem ipsum.
+Flutter client for browsing GitHub repositories through the GitHub Search API, with a UI inspired by GitHub's Primer design system.
+
+Supports debounced search, language filters, sorting (best match, stars, forks, recently updated) with ascending/descending order, and infinite scroll pagination.
+
+Domain use cases build search queries and validate input; repositories map API pages and propagate `ResultPattern` outcomes.
+
+Presentation uses view models built on a lightweight `StateManagement` (`ChangeNotifier`) with `StatePattern` for loading, success, and error UI states.
+
+Includes layered tests (models, data sources, repositories, use cases, view models) and CI with analyze and coverage.
+
+## Structure
+
+```mermaid
+flowchart TB
+  subgraph presentation [presentation]
+    RepositoriesView --> RepositoriesViewModel
+    RepositoryDetailView --> RepositoryDetailViewModel
+  end
+  RepositoriesViewModel --> SearchRepositoriesUseCase
+  RepositoryDetailViewModel --> GetRepositoryDetailUseCase
+  subgraph domain [domain]
+    SearchRepositoriesUseCase --> RepositoriesRepositoryPort[RepositoriesRepository]
+    GetRepositoryDetailUseCase --> RepositoriesRepositoryPort
+  end
+  subgraph data [data]
+    RepositoriesRepositoryPort --> RepositoriesRepositoryImpl
+    RepositoriesRepositoryImpl --> RemoteDataSource
+    RemoteDataSource --> GitHubApi[GitHub REST API]
+  end
+```
+
+## Stack
+
+| Technology | Version |
+|------------|---------|
+| Dart SDK | ^3.13.5 |
+| connectivity_plus | ^7.1.1 |
+| cupertino_icons | ^1.0.8 |
+| dio | ^5.11.1 |
+| get_it | ^9.3.0 |
+| go_router | ^18.0.2 |
+| flutter_lints | ^6.0.0 |
+| build_runner | ^2.16.2 |
+| mockito | ^5.8.1 |
+| Android Gradle Plugin | 9.1.0 |
+| Kotlin | 2.4.0 |
+| NDK | 30.0.16248370 |
+| compileSdk / targetSdk | 36 |
+| minSdk | 29 |
+| JVM | 25 |
+| iOS Deployment Target | 15.0 |
+| Swift | 5.0 |
+| GitHub Actions | CI/CD |
+
+## Architecture
+
+```
+lib/
+    ├── main.dart
+    └── src/
+        ├── common/
+        │   ├── constants/
+        │   ├── dependency_injectors/
+        │   ├── design/
+        │   ├── enums/
+        │   ├── patterns/
+        │   ├── routes/
+        │   ├── services/
+        │   ├── state_management/
+        │   ├── utils/
+        │   └── widgets/
+        └── features/
+            └── repositories/
+                ├── data/
+                │   ├── data_sources/
+                │   ├── models/
+                │   └── repositories/
+                ├── domain/
+                │   ├── entities/
+                │   ├── exceptions/
+                │   ├── repositories/
+                │   └── use_cases/
+                └── presentation/
+                    ├── routes/
+                    ├── view_models/
+                    ├── views/
+                    └── widgets/
+```
 
 ## Coverage
 
@@ -17,10 +104,6 @@ open coverage/html/index.html
 | Image 1 | Image 2 | Image 3 |
 |----------|----------|----------|
 | ![App Screenshot](assets/screenshots/screen-1.png) | ![App Screenshot](assets/screenshots/screen-2.png) | ![App Screenshot](assets/screenshots/screen-3.png) |
-
-| Image 4 | Image 5 | Image 6 |
-|----------|----------|----------|
-| ![App Screenshot](assets/screenshots/screen-4.png) | ![App Screenshot](assets/screenshots/screen-5.png) | ![App Screenshot](assets/screenshots/screen-6.png) |
 
 ## Commits
 
