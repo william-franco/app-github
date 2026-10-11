@@ -1,4 +1,0 @@
-flutter_native_splash:
-  android_disable_fullscreen: true
-  image: assets/logo/github-mark-120-px.png
-  color: "#FFFFFF"
