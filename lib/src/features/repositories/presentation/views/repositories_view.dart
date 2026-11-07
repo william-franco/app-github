@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:app_github/src/common/patterns/state_pattern.dart';
 import 'package:app_github/src/common/state_management/state_management.dart';
-import 'package:app_github/src/common/widgets/feedback_view_widget.dart';
+import 'package:app_github/src/common/design/widgets/feedback_view_widget.dart';
 import 'package:app_github/src/features/repositories/presentation/routes/repositories_routes.dart';
 import 'package:app_github/src/features/repositories/presentation/view_models/view_models.dart';
 import 'package:app_github/src/features/repositories/presentation/widgets/widgets.dart';
