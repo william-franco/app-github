@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:app_github/src/common/enums/repositories_enums.dart';
 
 typedef SortSelection = ({SortType sort, OrderType order});

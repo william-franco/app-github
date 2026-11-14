@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:app_github/src/common/constants/api_constant.dart';
 
 typedef HttpResult = ({int? statusCode, dynamic data, String? error});

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:app_github/src/common/design/theme_design.dart';
 import 'package:app_github/src/common/utils/formatters.dart';
 import 'package:app_github/src/features/repositories/domain/domain.dart';
